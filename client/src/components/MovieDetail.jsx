@@ -6,11 +6,11 @@ import Header from "./Header";
 function MovieDetail() {
   const movieId = useParams().id;
 
+  const [movie, setMovie] = useState([]);
+
   useEffect(() => {
     fetchMovie();
   }, []);
-
-  const [movie, setMovie] = useState([]);
 
   const fetchMovie = async () => {
     const data = await fetch(

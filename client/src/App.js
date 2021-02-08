@@ -15,9 +15,16 @@ function App() {
         <Route path="/movie/:id">
           <MovieDetail />
         </Route>
+        <Route path="*">
+          <NoMatch />
+        </Route>
       </Switch>
     </Router>
   );
+}
+
+function NoMatch() {
+  return <h1>Error 404 : Not found</h1>;
 }
 
 export default App;

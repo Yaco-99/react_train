@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Slider(props) {
+  const [movies, setMovies] = useState([]);
+
   useEffect(() => {
     fetchMovies();
   }, []);
-
-  const [movies, setMovies] = useState([]);
 
   const fetchMovies = async () => {
     const data = await fetch(`https://api.themoviedb.org/${props.link}`);
