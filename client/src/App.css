@@ -1,0 +1,13 @@
+.movie_slider {
+  overflow-x: scroll;
+}
+
+.dark_bg {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+}
+
+.black_bg {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
