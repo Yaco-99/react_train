@@ -22,7 +22,7 @@ function Slider(props) {
   };
 
   return (
-    <section className="dark_bg px-3">
+    <section className="p-3">
       <h2>{props.title}</h2>
       <div className="row d-flex flex-nowrap movie_slider">
         {movies.map((movie) => (

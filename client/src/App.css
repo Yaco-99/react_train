@@ -5,6 +5,7 @@
 .dark_bg {
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
+  border-radius: 0 0 20px 20px;
 }
 
 .black_bg {
@@ -18,4 +19,63 @@
 
 .width-66 {
   width: 66%;
+}
+
+.register_form {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.disappear {
+  animation: disappear 2s ease-in-out forwards;
+}
+
+.appear {
+  animation: appear 2s ease-in-out forwards;
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    transform: translateX(-500px);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateX(500px);
+    width: 0%;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+    width: 100%;
+  }
+}
+
+.movie_slider::-webkit-scrollbar {
+  width: 20px;
+}
+
+.movie_slider::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-clip: content-box;
+}
+
+.movie_slider::-webkit-scrollbar-thumb {
+  background: rgb(13, 110, 253);
+  border-radius: 10px;
+  height: 20px;
+}
+
+.movie_slider::-webkit-scrollbar-thumb:hover {
+  background: rgb(9, 50, 112);
 }

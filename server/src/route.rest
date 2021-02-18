@@ -1,0 +1,12 @@
+GET http://localhost:4000/movies
+
+###
+
+POST http://localhost:4000/movies
+Content-Type: application/json
+
+{
+    "title": "titre",
+    "imagePath": "test/test.jpg",
+    "date": "12/05/2015"
+}

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home";
 import MovieDetail from "./components/MovieDetail";
+import Register from "./components/Register";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -14,6 +15,9 @@ function App() {
         </Route>
         <Route path="/movie/:id">
           <MovieDetail />
+        </Route>
+        <Route path="/register">
+          <Register />
         </Route>
         <Route path="*">
           <NoMatch />

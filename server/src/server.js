@@ -1,16 +1,10 @@
-// server/src/server.js
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 
-// Assign environment variables
 const port = process.env.PORT || 4000;
-const mongoUri = process.env.MONGO_URI || "mongodb://localhost:27017/test";
+const mongoUri = process.env.MONGO_URI;
 
-/**
- * Setup services
- */
-
-// Initiliase an express server
 const app = express();
 
 // Options to pass to mongodb to avoid deprecation warnings
@@ -18,11 +12,9 @@ const options = {
   useNewUrlParser: true,
 };
 
-// Function to connect to the database
 const conn = () => {
   mongoose.connect(mongoUri, options);
 };
-// Call it to connect
 conn();
 
 // Handle the database connection and retry as needed
@@ -34,31 +26,9 @@ db.on("error", (err) => {
 });
 db.once("open", () => console.log("Successfully connected to mongo"));
 
-// Setup routes to respond to client
-app.get("/welcome", async (req, res) => {
-  console.log("Client request received");
-  const user = await User.find().exec();
-  console.log(user[0].name);
-  res.send(
-    `Hello Client! There is one record in the database for ${user[0].name}`
-  );
-});
+app.use(express.json());
 
-// Setup a record in the database to retrieve
-const { Schema } = mongoose;
-const userSchema = new Schema(
-  {
-    name: String,
-  },
-  {
-    timestamps: true,
-  }
-);
-const User = mongoose.model("User", userSchema);
-const user = new User({ name: "Big Bill Brown" });
-user
-  .save()
-  .then((user) => console.log(`${user.name} saved to the database`))
-  .catch((err) => console.log(err));
+const moviesRouter = require("./routes/movies");
+app.use("/movies", moviesRouter);
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(4000, () => console.log("server started"));

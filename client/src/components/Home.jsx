@@ -8,14 +8,16 @@ function Home() {
   return (
     <div className="container my-3">
       <Header />
-      <Slider
-        title="Popular"
-        link="3/movie/popular?api_key=064a095d09fe3dff6f8350dae42af935&language=fr"
-      />
-      <Slider
-        title="Top rated"
-        link="3/movie/top_rated?api_key=064a095d09fe3dff6f8350dae42af935&language=fr"
-      />
+      <div className="dark_bg">
+        <Slider
+          title="Popular"
+          link="3/movie/popular?api_key=064a095d09fe3dff6f8350dae42af935&language=fr"
+        />
+        <Slider
+          title="Top rated"
+          link="3/movie/top_rated?api_key=064a095d09fe3dff6f8350dae42af935&language=fr"
+        />
+      </div>
     </div>
   );
 }
