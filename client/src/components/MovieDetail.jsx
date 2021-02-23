@@ -32,7 +32,7 @@ function MovieDetail() {
     <div className="container my-3 dark_bg">
       <Header />
       <section className="d-flex">
-        <div className="row">
+        <div className="row py-3">
           <div className="col-md-4 offset-md-1 dark_bg">
             <img className="w-100" src={movie.poster_path} alt="poster" />
           </div>
